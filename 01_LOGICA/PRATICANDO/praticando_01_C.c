@@ -52,13 +52,15 @@
 // }
 
 // ------------------------------------------------------
-int main(){
-    float x = 3.1415;
-    double y = 3.14155896587458962547;
-    long double z = 3.14155896587458962548;
-    printf("Tamanho de um float x em bytes: %d\n", sizeof x);
-    printf("Tamanho de um double y em bytes: %d\n", sizeof y);
-    printf("Tamanho de um long double z em bytes: %d\n", sizeof z);
-    printf("Valor de y: %.15Lf\n", z);
-    return 0;
-}
+// int main(){
+//     float x = 3.1415;
+//     double y = 3.14155896587458962547;
+//     long double z = 3.14155896587458962548;
+//     printf("Tamanho de um float x em bytes: %d\n", sizeof x);
+//     printf("Tamanho de um double y em bytes: %d\n", sizeof y);
+//     printf("Tamanho de um long double z em bytes: %d\n", sizeof z);
+//     printf("Valor de y: %.15Lf\n", z);
+//     return 0;
+// }
+
+// ------------------------------------------------------
