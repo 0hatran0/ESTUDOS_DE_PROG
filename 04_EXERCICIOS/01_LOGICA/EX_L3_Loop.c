@@ -116,18 +116,11 @@
 // int main(){    
 //      int soma;
 //     // For para pois já sei o numero de vezes
-//     for (int i = 1; i <= 1000; i++)
+//     for (int i = 1; i <= 1000; i=+2)
 //     {
-//         // Identificar se a divisão por dois é resto 0, caso o contrário, o número é impar
-//         if (i%2 != 0)
-//         {
 //             // Soma dos número ímpares
 //             soma+=i;
-//         }else
-//         {
-//             continue;
-//         }
-//         printf("Número atual: %d\n Soma atual: %d\n", i, soma);
+//             printf("Número atual: %d\n Soma atual: %d\n", i, soma);
 //     }
 //     return 0;
 // }
@@ -152,7 +145,6 @@
 //             i++;
 //         }
 //     } while (i != 3);
-    
 //     media = soma/2;
 //     printf("Media final: %.2f", media);
 //     return 0;
@@ -171,17 +163,115 @@
     
 //     return 0;
 // }
+// ---------------------------------------------------------------------
 // Ex 07
 // Leia um valor inteiro N. Apresente o quadrado de cada um dos valores pares, de 1 até N,
 // inclusive N, se for o caso.
-int main(){    
-    int n;
-    printf("Digite um valor inteiro: ");
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
+// int main(){    
+//     int n;
+//     printf("Digite um valor inteiro: ");
+//     scanf("%d", &n);
+//     for (int i = 1; i <= n; i++)
+//     {
+//         printf("%d\n", i*i);
+//     }
+    
+//     return 0;
+// }
+// ---------------------------------------------------------------------
+// Ex 08
+// Escreva um programa em C que funcione como uma calculadora. O programa deve apresentar
+// um menu ao usuário da seguinte forma:
+// 1 – Somar
+// 2 – Subtrair
+// 3 – Multiplicar
+// 4 – Dividir
+// 0 – Sair
+
+// Uma estrutura do tipo switch deve ser utilizada para realizar cada operação em um case. Após a
+// escolha da operação, dois valores devem ser pedidos ao usuário para realizar a operação escolhida.
+// Se a operação escolhida for a 4 o dividendo não pode ser zero, um novo valor deve ser solicitado. O
+// programa deve funcionar até que o usuário escolha a opção 0 (opção de saída).
+
+void somar(){
+    float num1, num2;
+    printf("Insira dois valores para realizar a soma:\nPrimeiro valor:");
+    scanf("%f", &num1);
+    printf("Segundo valor:");
+    scanf("%f", &num2);
+    printf("Soma: %.2f\n\n", num1+num2);
+}
+
+void subtrair(){
+    float num1, num2;
+    printf("Insira dois valores para realizar a subtração:\nPrimeiro valor:");
+    scanf("%f", &num1);
+    printf("Segundo valor:");
+    scanf("%f", &num2);
+    printf("Subtraição: %.2f\n\n", num1-num2);
+}
+
+void multiplicar(){
+    float num1, num2;
+    printf("Insira dois valores para realizar a multiplicação:\nPrimeiro valor:");
+    scanf("%f", &num1);
+    printf("Segundo valor:");
+    scanf("%f", &num2);
+    printf("Multiplicação: %.2f\n\n", num1*num2);
+}
+
+void dividir(){
+    float num, i=1, divisor, dividendo;
+    do
     {
-        printf("%d\n", i*i);
-    }
+        if (i == 1)
+        {
+            printf("Insira dois valores para realizar a divisão:\nPrimeiro valor:");
+            scanf("%f", &num);
+            dividendo = num;
+            i++;
+        }else{
+            printf("Segundo valor:");
+            scanf("%f", &num);
+            if (num != 0){
+                divisor = num;
+                i++;
+            }else
+            {
+                printf("O divisor não pode ser 0, por favor inserir outro valor\n");
+            }
+        }
+        
+    } while (i != 3);
+    printf("Divisão: %.2f\n", dividendo/divisor);
+}
+
+int main(){
+    int operacao;
+    do
+    {
+        printf("Selecione a operalçao que deseja realizar:\n1 - Somar\n2 - Subtrair\n3 - Multiplicar\n4 - Dividir\n0 - Sair\n-->");
+        scanf("%d", &operacao);
+        switch (operacao)
+        {
+        case 1:
+            somar();
+            break;
+        case 2:
+            subtrair();
+            break;
+        case 3:
+            multiplicar();
+            break;
+        case 4:
+            dividir();
+            break;
+        default:
+            break;
+        }
+    } while (operacao != 0);
+    
+    printf("Calculadora encerrada!");
     
     return 0;
 }
